@@ -268,6 +268,15 @@ class Trading(Public):
         url = self._construct_url("balance/", base, quote)
         return self._post(url, return_json=True, version=2)
 
+    def all_fees(self):
+        url = "fees/trading/"
+        return self._post(url, return_json=True, version=2)
+
+
+    def fees(self,base,quote):
+        url = self._construct_url("fees/trading/",base,quote)
+        return self._post(url, return_json=True, version=2)
+
     def user_transactions(self, offset=0, limit=1000, descending=True,
                           base=None, quote=None, since_timestamp=None, since_id=None):
         """
